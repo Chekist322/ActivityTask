@@ -1,7 +1,6 @@
 package com.example.batrakov.activitytask;
 
 import android.content.Intent;
-import android.content.res.Configuration;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -102,6 +101,11 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    private void createAddActivity() {
+        Intent intent = new Intent(this, AddActivity.class);
+        startActivityForResult(intent, ADD_ACT);
+    }
+
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
@@ -134,11 +138,6 @@ public class MainActivity extends AppCompatActivity {
                 mListAdapter.replaceData(mListData);
             }
         }
-    }
-
-    private void createAddActivity() {
-        Intent intent = new Intent(this, AddActivity.class);
-        startActivityForResult(intent, ADD_ACT);
     }
 
     private class CatHolder extends RecyclerView.ViewHolder {
