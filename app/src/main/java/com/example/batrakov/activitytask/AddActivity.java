@@ -20,7 +20,6 @@ public class AddActivity extends AppCompatActivity {
     public static final String NAME_KEY = "name key";
     public static final String BREED_KEY = "breed key";
     public static final String AGE_KEY = "age key";
-    public static final String ADD = "add";
 
     private ImageButton mBack;
     private Button mRegister;
@@ -63,7 +62,6 @@ public class AddActivity extends AppCompatActivity {
             intent.putExtra(NAME_KEY, name);
             intent.putExtra(BREED_KEY, breed);
             intent.putExtra(AGE_KEY, age);
-            intent.setAction(ADD);
             setResult(RESULT_OK, intent);
             finish();
         }
