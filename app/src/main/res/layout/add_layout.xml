@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/colorButtonNormal"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/addToolBar"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:background="@drawable/rect_color"
+        android:baselineAligned="false"
+        android:elevation="24dp"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/back"
+            style="@style/Button"
+            android:layout_width="200dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/rect_color"
+            android:elevation="10dp"
+            android:text="Button"
+            android:textAppearance="@style/AppTheme"
+            android:textSize="18sp"
+            android:theme="@style/AppTheme"
+            app:srcCompat="@drawable/ic_arrow_back" />
+
+        <TextView
+            android:id="@+id/addTitle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:elevation="0dp"
+            android:gravity="center_vertical"
+            android:text="@string/addTitle"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="24sp" />
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="40dp">
+
+        <LinearLayout
+            android:id="@+id/layoutForSnackbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="30dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/edit_text_rect"
+                android:elevation="5dp"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/nameField"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:background="@drawable/edit_text_rect"
+                    android:ems="10"
+                    android:hint="@string/name"
+                    android:inputType="textPersonName"
+                    android:paddingEnd="16dp"
+                    android:paddingStart="16dp"
+                    android:textSize="24sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/edit_text_rect"
+                android:elevation="5dp"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/breedField"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:background="@drawable/edit_text_rect"
+                    android:ems="10"
+                    android:hint="@string/breed"
+                    android:inputType="textPersonName"
+                    android:paddingEnd="16dp"
+                    android:paddingStart="16dp"
+                    android:textSize="24sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/edit_text_rect"
+                android:elevation="5dp"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/ageField"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:background="@drawable/edit_text_rect"
+                    android:ems="10"
+                    android:hint="@string/age"
+                    android:inputType="textPersonName|number"
+                    android:paddingEnd="16dp"
+                    android:paddingStart="16dp"
+                    android:textSize="24sp" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/registerButton"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_marginBottom="30dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/register_button_rect"
+                android:elevation="20dp"
+                android:text="@string/registerNewCat"
+                android:textColor="@color/white"
+                android:textSize="24sp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</android.support.design.widget.CoordinatorLayout>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="?attr/colorButtonNormal"
+        android:orientation="vertical">
+
+        <include
+            layout="@layout/header_item"
+            android:layout_width="match_parent"
+            android:visibility="invisible" />
+
+        <ListView
+            android:id="@+id/list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/rect_colorless"
+            android:elevation="1dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/kindaToolBar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="8"
+        android:background="@color/colorPrimary"
+        android:elevation="10dp"
+        android:orientation="vertical"
+        android:theme="@style/AppTheme">
+
+        <ImageButton
+            android:id="@+id/firstButton"
+            style="@style/Button"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_weight="1"
+            android:background="@drawable/rect_color"
+            android:elevation="10dp"
+            android:text="Button"
+            android:theme="@style/AppTheme"
+            app:srcCompat="@drawable/intent_button_1" />
+
+        <ImageButton
+            android:id="@+id/secondButton"
+            style="@style/Button"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/rect_color"
+            android:elevation="10dp"
+            android:text="Button"
+            android:theme="@style/AppTheme"
+            app:srcCompat="@drawable/intent_button_2" />
+
+        <ImageButton
+            android:id="@+id/add"
+            style="@style/Button"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/rect_color"
+            android:elevation="30dp"
+            app:srcCompat="@drawable/add_button" />
+    </LinearLayout>
+
+</LinearLayout>
