@@ -24,7 +24,6 @@
             android:layout_weight="1"
             android:background="@drawable/rect_color"
             android:elevation="10dp"
-            android:text="Button"
             android:textAppearance="@style/AppTheme"
             android:textSize="18sp"
             android:theme="@style/AppTheme"

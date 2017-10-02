@@ -1,79 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/colorButtonNormal"
     android:elevation="0dp"
     android:orientation="vertical">
 
-    <LinearLayout
-        android:id="@+id/mainToolBar"
-        android:layout_width="match_parent"
-        android:layout_height="65dp"
-        android:background="@drawable/rect_color"
-        android:baselineAligned="false"
-        android:elevation="24dp"
-        android:orientation="horizontal">
-
-        <ImageButton
-            android:id="@+id/firstButton"
-            style="@style/Widget.AppCompat.ImageButton"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginEnd="20dp"
-            android:layout_marginStart="20dp"
-            android:layout_weight="1"
-            android:background="@drawable/rect_color"
-            android:elevation="10dp"
-            android:text="Button"
-            android:textAppearance="@style/AppTheme"
-            android:textSize="18sp"
-            android:theme="@style/AppTheme"
-            app:srcCompat="@drawable/intent_button_1" />
-
-        <ImageButton
-            android:id="@+id/secondButton"
-            style="@style/Widget.AppCompat.ImageButton"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginEnd="20dp"
-            android:layout_weight="1"
-            android:background="@drawable/rect_color"
-            android:elevation="10dp"
-            android:focusableInTouchMode="true"
-            android:text="Button"
-            android:textAlignment="center"
-            android:textAppearance="@style/AppTheme"
-            android:textSize="18sp"
-            android:theme="@style/AppTheme"
-            app:srcCompat="@drawable/intent_button_2" />
-
-        <ImageButton
-            android:id="@+id/add"
-            style="@style/Widget.AppCompat.ImageButton"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginEnd="20dp"
-            android:layout_weight="1"
-            android:background="@drawable/rect_color"
-            android:baselineAlignBottom="true"
-            android:elevation="20dp"
-            app:srcCompat="@drawable/add_button" />
-
-    </LinearLayout>
-
-    <include
-        layout="@layout/header_item"
-        android:visibility="invisible" />
-
-    <ListView
-        android:id="@+id/list"
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/rect_colorless"
-        android:elevation="20dp" />
+        android:layout_gravity="center">
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="invisible" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/mainToolBar"
+                android:layout_width="match_parent"
+                android:layout_height="65dp"
+                android:background="@drawable/rect_color"
+                android:baselineAligned="false"
+                android:elevation="24dp"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/firstButton"
+                    style="@style/Widget.AppCompat.ImageButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/rect_color"
+                    android:elevation="10dp"
+                    android:textAppearance="@style/AppTheme"
+                    android:textSize="18sp"
+                    android:theme="@style/AppTheme"
+                    app:srcCompat="@drawable/intent_button_1" />
+
+                <ImageButton
+                    android:id="@+id/secondButton"
+                    style="@style/Widget.AppCompat.ImageButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="20dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/rect_color"
+                    android:elevation="10dp"
+                    android:focusableInTouchMode="true"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/AppTheme"
+                    android:textSize="18sp"
+                    android:theme="@style/AppTheme"
+                    app:srcCompat="@drawable/intent_button_2" />
+
+                <ImageButton
+                    android:id="@+id/add"
+                    style="@style/Widget.AppCompat.ImageButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="20dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/rect_color"
+                    android:baselineAlignBottom="true"
+                    android:elevation="20dp"
+                    app:srcCompat="@drawable/add_button" />
+
+            </LinearLayout>
+
+            <include
+                layout="@layout/header_item"
+                android:visibility="invisible" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/rect_colorless"
+                android:elevation="20dp" />
+
+        </LinearLayout>
+    </FrameLayout>
 
 
-</LinearLayout>
+</android.support.design.widget.CoordinatorLayout>

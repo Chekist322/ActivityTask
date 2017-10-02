@@ -6,24 +6,12 @@ import java.io.Serializable;
  * Created by batrakov on 28.09.17.
  */
 
-public class Cat implements Serializable {
+class Cat implements Serializable {
     private String mName;
     private String mBreed;
     private String mAge;
 
-    Cat(){
-        mName = null;
-        mBreed = null;
-        mAge = null;
-    }
-
-    Cat(Cat aCat){
-        this.mName = aCat.getName();
-        this.mBreed = aCat.getBreed();
-        this.mAge = aCat.getAge();
-    }
-
-    Cat(String aName, String aBreed, String aAge){
+    Cat(String aName, String aBreed, String aAge) {
         mName = aName;
         mBreed = aBreed;
         mAge = aAge;

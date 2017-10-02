@@ -8,4 +8,5 @@
     <string name="name">Кличка</string>
     <string name="nameError">Используйте только буквы для указания клички!</string>
     <string name="registerNewCat">Зарегистрировать</string>
+    <string name="catPressed">Киса №</string>
 </resources>
