@@ -17,42 +17,54 @@ import android.widget.ImageButton;
 
 public class AddActivity extends AppCompatActivity {
 
+    /**
+     * Intent key for name.
+     */
     public static final String NAME_KEY = "name key";
+
+    /**
+     * Intent key for breed.
+     */
     public static final String BREED_KEY = "breed key";
+
+    /**
+     * Intent key for age.
+     */
     public static final String AGE_KEY = "age key";
 
-    private ImageButton mBack;
-    private Button mRegister;
     private EditText mName;
     private EditText mBreed;
     private EditText mAge;
     private View mView;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected void onCreate(@Nullable Bundle aSavedInstanceState) {
+        super.onCreate(aSavedInstanceState);
         setContentView(R.layout.add_layout);
         mView = findViewById(R.id.layoutForSnackbar);
-        mBack = (ImageButton) findViewById(R.id.back);
+        ImageButton back = (ImageButton) findViewById(R.id.back);
         mName = (EditText) findViewById(R.id.nameField);
         mBreed = (EditText) findViewById(R.id.breedField);
         mAge = (EditText) findViewById(R.id.ageField);
-        mRegister = (Button) findViewById(R.id.registerButton);
-        mBack.setOnClickListener(new View.OnClickListener() {
+        Button register = (Button) findViewById(R.id.registerButton);
+        back.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View aView) {
                 setResult(RESULT_CANCELED);
                 finish();
             }
         });
-        mRegister.setOnClickListener(new View.OnClickListener() {
+        register.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View aView) {
                 updateMainActivity();
             }
         });
     }
 
+    /**
+     * Sending new item to MainActivity.
+     */
     private void updateMainActivity() {
         String name = mName.getText().toString();
         String breed = mBreed.getText().toString();
@@ -67,6 +79,11 @@ public class AddActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Check name field.
+     * @param aName target string
+     * @return check result
+     */
     private boolean checkName(String aName) {
         if (!aName.matches("([a-zA-Zа-яА-Я]+\\s?)+")) {
             Snackbar snackbar = Snackbar.make(mView, getResources().getText(R.string.nameError), Snackbar.LENGTH_LONG);
@@ -79,6 +96,11 @@ public class AddActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Check breed field.
+     * @param aBreed target string
+     * @return check result
+     */
     private boolean checkBreed(String aBreed) {
         if (!aBreed.matches("([a-zA-Zа-яА-Я]+\\s?)+")) {
             Snackbar snackbar = Snackbar.make(mView, getResources().getText(R.string.breedError), Snackbar.LENGTH_LONG);
@@ -91,6 +113,11 @@ public class AddActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Check age field.
+     * @param aAge target string
+     * @return check result
+     */
     private boolean checkAge(String aAge) {
         if (!aAge.matches("\\d+")) {
             Snackbar snackbar = Snackbar.make(mView, getResources().getText(R.string.ageError), Snackbar.LENGTH_LONG);
