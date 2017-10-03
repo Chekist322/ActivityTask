@@ -8,7 +8,6 @@
     <string name="nameError">Use only letters for name!</string>
     <string name="breedError">Use only letters for breed!</string>
     <string name="ageError">Use only digits for age!</string>
-    <string name="customAction" translatable="false">com.example.batrakov.activitytaskgrid.ACTION</string>
     <string name="untitled" translatable="false">&lt;Untitled&gt;</string>
     <string name="catPressed">Kitty №</string>
 </resources>

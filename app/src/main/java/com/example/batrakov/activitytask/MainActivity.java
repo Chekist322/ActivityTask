@@ -10,8 +10,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import com.example.batrakov.activitytask.CustomView;
 
 import java.util.ArrayList;
 
@@ -23,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
 
     private static final String CAT_ARRAY = "cat array";
     private static final String CAT_INDEX = "cat index";
+    private static final String CUSTOM_ACTION = "com.example.batrakov.activitytaskgrid.ACTION";
 
     private static final int GRID_ACT = 0;
     private static final int ADD_ACT = 1;
@@ -37,10 +41,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle aSavedInstanceState) {
         super.onCreate(aSavedInstanceState);
         setContentView(R.layout.activity_main);
+        final CustomView customView = (CustomView) this.findViewById(R.id.customView);
         mProgressBar = (ProgressBar) findViewById(R.id.progressBar);
-        ImageButton firstIntentButton = (ImageButton) findViewById(R.id.firstButton);
-        ImageButton secondIntentButton = (ImageButton) findViewById(R.id.secondButton);
-        ImageButton addButton = (ImageButton) findViewById(R.id.add);
         mListView = (RecyclerView) findViewById(R.id.list);
         mListHeader = findViewById(R.id.listHeader);
 
@@ -53,57 +55,60 @@ public class MainActivity extends AppCompatActivity {
         } else {
             mListData = new ArrayList<>();
         }
-
         mListAdapter = new CatAdapter(mListData);
         mListView.setLayoutManager(new LinearLayoutManager(this));
         mListView.setAdapter(mListAdapter);
         mListAdapter.replaceData(mListData);
-        addButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View aView) {
-                mProgressBar.setVisibility(View.VISIBLE);
-                mListView.setVisibility(View.INVISIBLE);
-                createAddActivity();
-            }
-        });
 
-        firstIntentButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View aView) {
-                ArrayList<String> stringArrayList = new ArrayList<>();
-                Intent intent = new Intent();
-                intent.setAction(getResources().getString(R.string.customAction));
-                for (int i = 0; i < mListData.size(); i++) {
-                    stringArrayList.add(mListData.get(i).getName());
-                    stringArrayList.add(mListData.get(i).getBreed());
-                    stringArrayList.add(mListData.get(i).getAge());
-                }
-                intent.putStringArrayListExtra(CAT_ARRAY, stringArrayList);
-                if (intent.resolveActivity(getPackageManager()) != null) {
-                    startActivityForResult(intent, GRID_ACT);
 
-                }
-            }
-        });
+        System.out.println(customView);
 
-        secondIntentButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View aView) {
-                ArrayList<String> stringArrayList = new ArrayList<>();
-                Intent intent = new Intent();
-                intent.setAction(Intent.ACTION_VIEW);
-                for (int i = 0; i < mListData.size(); i++) {
-                    stringArrayList.add(mListData.get(i).getName());
-                    stringArrayList.add(mListData.get(i).getBreed());
-                    stringArrayList.add(mListData.get(i).getAge());
-                }
-                intent.putStringArrayListExtra(CAT_ARRAY, stringArrayList);
-                if (intent.resolveActivity(getPackageManager()) != null) {
-                    startActivityForResult(intent, GRID_ACT);
-
-                }
-            }
-        });
+//        customView.setFirstButtonOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View aView) {
+//                ArrayList<String> stringArrayList = new ArrayList<>();
+//                Intent intent = new Intent();
+//                intent.setAction(CUSTOM_ACTION);
+//                for (int i = 0; i < mListData.size(); i++) {
+//                    stringArrayList.add(mListData.get(i).getName());
+//                    stringArrayList.add(mListData.get(i).getBreed());
+//                    stringArrayList.add(mListData.get(i).getAge());
+//                }
+//                intent.putStringArrayListExtra(CAT_ARRAY, stringArrayList);
+//                if (intent.resolveActivity(getPackageManager()) != null) {
+//                    startActivityForResult(intent, GRID_ACT);
+//
+//                }
+//            }
+//        });
+//
+//        customView.setSecondButtonOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View aView) {
+//                ArrayList<String> stringArrayList = new ArrayList<>();
+//                Intent intent = new Intent();
+//                intent.setAction(Intent.ACTION_VIEW);
+//                for (int i = 0; i < mListData.size(); i++) {
+//                    stringArrayList.add(mListData.get(i).getName());
+//                    stringArrayList.add(mListData.get(i).getBreed());
+//                    stringArrayList.add(mListData.get(i).getAge());
+//                }
+//                intent.putStringArrayListExtra(CAT_ARRAY, stringArrayList);
+//                if (intent.resolveActivity(getPackageManager()) != null) {
+//                    startActivityForResult(intent, GRID_ACT);
+//
+//                }
+//            }
+//        });
+//
+//        customView.setThirdButtonOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View aView) {
+//                mProgressBar.setVisibility(View.VISIBLE);
+//                mListView.setVisibility(View.INVISIBLE);
+//                createAddActivity();
+//            }
+//        });
     }
 
     /**
