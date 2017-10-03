@@ -7,6 +7,5 @@
         <attr name="orientationPortrait" format="boolean"/>
         <attr name="mainColor" format="color"/>
         <attr name="backgroundShape" format="reference"/>
-        <attr name="customID" format="integer"/>
     </declare-styleable>
 </resources>

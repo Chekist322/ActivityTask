@@ -44,7 +44,7 @@
 
 
             <com.example.batrakov.activitytask.CustomView
-                custom:customID="@+id/customView"
+                android:id="@+id/customView"
                 android:layout_width="80dp"
                 android:layout_height="match_parent"
                 android:visibility="visible"

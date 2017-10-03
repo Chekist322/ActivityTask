@@ -2,12 +2,9 @@ package com.example.batrakov.activitytask;
 
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
-import android.support.annotation.IdRes;
 import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
-import android.view.LayoutInflater;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
@@ -17,6 +14,10 @@ import android.widget.LinearLayout;
  */
 
 public class CustomView extends LinearLayout {
+
+    private static final int ELEVATION = 20;
+    private static final int MARGIN_PADDING = 40;
+
 
     private Drawable mFirstButtonDrawable;
     private Drawable mSecondButtonDrawable;
@@ -28,10 +29,14 @@ public class CustomView extends LinearLayout {
     private ImageButton mSecondButton;
     private ImageButton mThirdButton;
 
+    /**
+     * Constructor.
+     * @param aContext context
+     * @param aAttrs attributes from XML
+     */
     public CustomView(Context aContext, AttributeSet aAttrs) {
-        super(aContext);
+        super(aContext, aAttrs);
         TypedArray array = aContext.getTheme().obtainStyledAttributes(aAttrs, R.styleable.CustomView, 0, 0);
-
         try {
             mFirstButtonDrawable = array.getDrawable(R.styleable.CustomView_firstButtonDrawable);
             mSecondButtonDrawable = array.getDrawable(R.styleable.CustomView_secondButtonDrawable);
@@ -43,14 +48,11 @@ public class CustomView extends LinearLayout {
             array.recycle();
         }
         init();
-
-        setBackground(mBackgroundShape);
-        setBackgroundColor(mColor);
-
-
-
     }
 
+    /**
+     * Visual initialization.
+     */
     private void init() {
         mFirstButton = new ImageButton(getContext());
         mSecondButton = new ImageButton(getContext());
@@ -69,37 +71,41 @@ public class CustomView extends LinearLayout {
         mThirdButton.setBackgroundColor(mColor);
 
 
-        mFirstButton.setElevation(20);
-        mSecondButton.setElevation(20);
-        mThirdButton.setElevation(20);
+        mFirstButton.setElevation(ELEVATION);
+        mSecondButton.setElevation(ELEVATION);
+        mThirdButton.setElevation(ELEVATION);
 
 
 
-        if (mOrientationPortrait){
+        if (mOrientationPortrait) {
             setOrientation(HORIZONTAL);
-            LinearLayout.LayoutParams firstParams = new LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.MATCH_PARENT);
+            LinearLayout.LayoutParams firstParams =
+                    new LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.MATCH_PARENT);
             firstParams.weight = 1;
-            firstParams.setMarginStart(40);
+            firstParams.setMarginStart(MARGIN_PADDING);
             firstParams.setMarginEnd(0);
 
-            LinearLayout.LayoutParams secondParams = new LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.MATCH_PARENT);
+            LinearLayout.LayoutParams secondParams =
+                    new LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.MATCH_PARENT);
             secondParams.weight = 1;
-            secondParams.setMarginStart(40);
-            secondParams.setMarginEnd(40);
+            secondParams.setMarginStart(MARGIN_PADDING);
+            secondParams.setMarginEnd(MARGIN_PADDING);
 
-            LinearLayout.LayoutParams thirdParams = new LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.MATCH_PARENT);
+            LinearLayout.LayoutParams thirdParams =
+                    new LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.MATCH_PARENT);
             thirdParams.weight = 1;
             thirdParams.setMarginStart(0);
-            thirdParams.setMarginEnd(40);
+            thirdParams.setMarginEnd(MARGIN_PADDING);
 
             mFirstButton.setLayoutParams(firstParams);
             mSecondButton.setLayoutParams(secondParams);
             mThirdButton.setLayoutParams(thirdParams);
         } else {
             setOrientation(VERTICAL);
-            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+            LinearLayout.LayoutParams params =
+                    new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
             params.weight = 1;
-            params.setMargins(0, 40, 0, 40);
+            params.setMargins(0, MARGIN_PADDING, 0, MARGIN_PADDING);
 
             mFirstButton.setLayoutParams(params);
 
@@ -112,17 +118,34 @@ public class CustomView extends LinearLayout {
         addView(mFirstButton);
         addView(mSecondButton);
         addView(mThirdButton);
+
+
+        setBackground(mBackgroundShape);
+        setBackgroundColor(mColor);
+        setElevation(ELEVATION);
     }
 
-    public void setFirstButtonOnClickListener(OnClickListener aOnClickListener){
+    /**
+     *
+     * @param aOnClickListener listener for the first button
+     */
+    public void setFirstButtonOnClickListener(OnClickListener aOnClickListener) {
         mFirstButton.setOnClickListener(aOnClickListener);
     }
 
-    public void setSecondButtonOnClickListener(OnClickListener aOnClickListener){
+    /**
+     *
+     * @param aOnClickListener listener for the second button
+     */
+    public void setSecondButtonOnClickListener(OnClickListener aOnClickListener) {
         mSecondButton.setOnClickListener(aOnClickListener);
     }
 
-    public void setThirdButtonOnClickListener(OnClickListener aOnClickListener){
+    /**
+     *
+     * @param aOnClickListener listener for the third button
+     */
+    public void setThirdButtonOnClickListener(OnClickListener aOnClickListener) {
         mThirdButton.setOnClickListener(aOnClickListener);
     }
 }
