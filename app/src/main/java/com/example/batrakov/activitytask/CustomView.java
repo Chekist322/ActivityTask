@@ -18,7 +18,6 @@ public class CustomView extends LinearLayout {
     private static final int ELEVATION = 20;
     private static final int MARGIN_PADDING = 40;
 
-
     private Drawable mFirstButtonDrawable;
     private Drawable mSecondButtonDrawable;
     private Drawable mThirdButtonDrawable;
@@ -70,12 +69,9 @@ public class CustomView extends LinearLayout {
         mSecondButton.setBackgroundColor(mColor);
         mThirdButton.setBackgroundColor(mColor);
 
-
         mFirstButton.setElevation(ELEVATION);
         mSecondButton.setElevation(ELEVATION);
         mThirdButton.setElevation(ELEVATION);
-
-
 
         if (mOrientationPortrait) {
             setOrientation(HORIZONTAL);
@@ -108,17 +104,12 @@ public class CustomView extends LinearLayout {
             params.setMargins(0, MARGIN_PADDING, 0, MARGIN_PADDING);
 
             mFirstButton.setLayoutParams(params);
-
             mSecondButton.setLayoutParams(params);
-
             mThirdButton.setLayoutParams(params);
         }
-
-
         addView(mFirstButton);
         addView(mSecondButton);
         addView(mThirdButton);
-
 
         setBackground(mBackgroundShape);
         setBackgroundColor(mColor);
