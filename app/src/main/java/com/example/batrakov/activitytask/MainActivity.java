@@ -170,7 +170,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         /**
-         * View fill.
+         * View filling.
          * @param aCat cat from list
          */
         void bindView(Cat aCat) {
